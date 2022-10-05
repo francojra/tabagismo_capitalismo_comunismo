@@ -41,7 +41,7 @@ smok <- smok %>%
 
 smok1 <- smok %>%
   filter(Entity %in% c("United States", "Germany", "Japan",
-                       "China", "Cuba", "Noth Korea")) %>%
+                       "China", "Cuba", "North Korea")) %>%
   group_by(Entity) %>%
   summarise(media = mean(por_tabag),
             sd = sd(por_tabag), n = n(),
@@ -50,7 +50,7 @@ smok1 <- smok %>%
 
 smok2 <- smok %>%
   filter(Entity %in% c("United States", "Germany", "Japan",
-                       "China", "Cuba", "Noth Korea")) %>%
+                       "China", "Cuba", "North Korea")) %>%
   view()
 
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
@@ -66,6 +66,8 @@ ggplot(smok1, aes(x = fct_reorder(Entity, media),
                                "#DDCC77", "#117733",
                                 "#332288", "#AA4499")) +
   scale_y_continuous(expand = expansion(mult = c(0,0))) +
+  scale_x_discrete(labels = c("Alemanha", "Coreia do Norte", "Japão", 
+                              "Estados Unidos", "Cuba", "China")) +
   labs(x = "Países", y = "Porcentagem de mortes 
                          atribuídas ao tabagismo") +
   theme_ipsum(axis_title_size = 16,
@@ -73,5 +75,11 @@ ggplot(smok1, aes(x = fct_reorder(Entity, media),
   theme(legend.position = "none",
         axis.text = element_text(color = "black"))
 
+ggplot(smok2, aes(x = Year, y = por_tabag, group = Entity, col = Entity)) +
+  geom_point() +
+  geom_line() +
+  scale_color_manual(values = c("#88CCEE", "#CC6677",
+                               "#DDCC77", "#117733",
+                                "#332288", "#AA4499"))
 
 
