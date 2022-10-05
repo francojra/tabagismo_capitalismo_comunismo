@@ -20,4 +20,18 @@
 ### saúde global. Isso torna possível que milhões de pessoas possam viver uma vida
 ### mais longa e mais saudável.
 
+# Carregar pacotes -------------------------------------------------------------------------------------------------------------------------
+
+library(tidyverse)
+library(cols4all)
+library(hrbrthemes)
+
+# Carregar dados ---------------------------------------------------------------------------------------------------------------------------
+
+smok <- read.csv("share-deaths-smoking.csv")
+view(smok)
+names(smok)
+
+# Manipular dados --------------------------------------------------------------------------------------------------------------------------
+
 
