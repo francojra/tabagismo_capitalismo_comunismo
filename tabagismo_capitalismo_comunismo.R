@@ -103,7 +103,8 @@ c4a("dark2", 2)
 ggplot(smok3, aes(x = Year, y = por_tabag, 
                   group = Entity, col = Entity)) +
   geom_line(size = 2.2) +
-  scale_color_manual(values = c("#1B9E77", "#D95F02")) +
+  scale_color_manual(values = c("#1B9E77", "#D95F02"),
+                     labels = c("China", "Estados Unidos")) +
   labs(x = "Tempo (anos)", y = "Mortes por tabagismo (%)", 
        color = "Países") +
   theme_hc() +
