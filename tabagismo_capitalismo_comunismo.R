@@ -102,9 +102,11 @@ c4a("dark2", 2)
 
 ggplot(smok3, aes(x = Year, y = por_tabag, 
                   group = Entity, col = Entity)) +
-  geom_line(size = 2) +
-  geom_point(shape = 23, size = 3.2, fill = "white") +
+  geom_line(size = 2.2) +
   scale_color_manual(values = c("#1B9E77", "#D95F02")) +
-  labs(x = "Tempo (anos)", y = "Mortes atribuídas ao tabagismo (%)", 
+  labs(x = "Tempo (anos)", y = "Mortes por tabagismo (%)", 
        color = "Países") +
-  theme_hc() 
+  theme_hc() +
+  theme(axis.title = element_text(size = 18),
+        axis.text = element_text(color = "black", size = 15),
+        legend.text = element_text(size = 12))
