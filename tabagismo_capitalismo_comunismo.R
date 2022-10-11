@@ -25,6 +25,7 @@
 library(tidyverse)
 library(cols4all)
 library(hrbrthemes)
+library(ggthemes)
 
 # Carregar dados ---------------------------------------------------------------------------------------------------------------------------
 
@@ -51,6 +52,10 @@ smok1 <- smok %>%
 smok2 <- smok %>%
   filter(Entity %in% c("United States", "Germany", "Japan",
                        "China", "Cuba", "North Korea")) %>%
+  view()
+
+smok3 <- smok %>%
+  filter(Entity %in% c("United States", "China")) %>%
   view()
 
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
@@ -90,4 +95,16 @@ ggplot(smok2, aes(x = Year, y = por_tabag, group = Entity, col = Entity)) +
               axis_text_size = 14) +
   theme(axis.text = element_text(color = "black"))
 
+# Estados Unidos x China -------------------------------------------------------------------------------------------------------------------
 
+c4a_gui()
+c4a("dark2", 2)
+
+ggplot(smok3, aes(x = Year, y = por_tabag, 
+                  group = Entity, col = Entity)) +
+  geom_line(size = 2) +
+  geom_point(shape = 23, size = 3.2, fill = "white") +
+  scale_color_manual(values = c("#1B9E77", "#D95F02")) +
+  labs(x = "Tempo (anos)", y = "Mortes atribuídas ao tabagismo (%)", 
+       color = "Países") +
+  theme_hc() 
