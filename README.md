@@ -1,4 +1,4 @@
-# Tabagismo em países capitalistas e comunistas
+# Tabagismo em países democratas e autocratas
 
 ### Autora do script: Jeanne Franco
 ### Data: 05/10/22
